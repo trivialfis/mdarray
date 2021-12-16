@@ -50,7 +50,7 @@
 #include <experimental/__p0009_bits/macros.hpp>
 #include <experimental/__p0009_bits/layout_right.hpp>
 #include <experimental/__p0009_bits/extents.hpp>
-#include <experimental/__p0009_bits/basic_mdspan.hpp>
+#include <experimental/__p0009_bits/mdspan.hpp>
 
 namespace std {
 namespace experimental {
@@ -97,7 +97,7 @@ class basic_mdarray;
 
 template <
   class ElementType,
-  ptrdiff_t... Exts,
+  size_t... Exts,
   class LayoutPolicy,
   class ContainerPolicy
 >
@@ -131,9 +131,9 @@ public:
   using reference = typename container_policy_type::reference;
   using const_reference = typename container_policy_type::const_reference;
   using view_type =
-    basic_mdspan<element_type, extents_type, layout_type, container_policy_type>;
+    mdspan<element_type, extents_type, layout_type, container_policy_type>;
   using const_view_type =
-    basic_mdspan<const element_type, extents_type, layout_type,
+    mdspan<const element_type, extents_type, layout_type,
       __detail::__const_wrapped_accessor_policy<container_policy_type>
     >;
 
@@ -408,7 +408,7 @@ private:
 
 };
 
-template <class T, ptrdiff_t... Exts>
+template <class T, size_t... Exts>
 using mdarray = basic_mdarray<T, std::experimental::extents<Exts...>>;
 
 } // end namespace __mdarray_version_0

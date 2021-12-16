@@ -213,7 +213,7 @@ struct __has_constexpr_required_span_size<
 
 template <class, class, class> struct __container_policy_select;
 
-template <class T, class LP, ptrdiff_t... Extents>
+template <class T, class LP, size_t... Extents>
 struct __container_policy_select<
   T, LP, std::experimental::extents<Extents...>
 >
