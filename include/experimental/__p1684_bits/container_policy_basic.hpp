@@ -77,32 +77,32 @@ public:
   using const_reference = typename container_type::const_reference;
 
   MDSPAN_FORCE_INLINE_FUNCTION
-  static constexpr reference access(container_type& c, ptrdiff_t i)
+  static constexpr reference access(container_type& c, size_t i)
     noexcept(noexcept(c[i]))
   {
     return c[size_t(i)];
   }
   MDSPAN_FORCE_INLINE_FUNCTION
-  static constexpr const_reference access(container_type const& c, ptrdiff_t i)
+  static constexpr const_reference access(container_type const& c, size_t i)
     noexcept(noexcept(c[i]))
   {
     return c[size_t(i)];
   }
   MDSPAN_FORCE_INLINE_FUNCTION
-  static constexpr reference access(pointer c, ptrdiff_t i) noexcept {
+  static constexpr reference access(pointer c, size_t i) noexcept {
     return c[size_t(i)];
   }
   MDSPAN_FORCE_INLINE_FUNCTION
-  static constexpr const_reference access(const_pointer c, ptrdiff_t i) noexcept {
+  static constexpr const_reference access(const_pointer c, size_t i) noexcept {
     return c[size_t(i)];
   }
 
   MDSPAN_INLINE_FUNCTION
-  static constexpr pointer offset(pointer p, ptrdiff_t i) noexcept {
+  static constexpr pointer offset(pointer p, size_t i) noexcept {
     return &p[size_t(i)];
   }
   MDSPAN_INLINE_FUNCTION
-  static constexpr const_pointer offset(const_pointer p, ptrdiff_t i) noexcept {
+  static constexpr const_pointer offset(const_pointer p, size_t i) noexcept {
     return &p[size_t(i)];
   }
 

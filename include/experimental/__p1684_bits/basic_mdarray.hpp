@@ -71,7 +71,7 @@ struct _basic_mdarray_crtp_helper<
  protected:
   MDSPAN_FORCE_INLINE_FUNCTION Derived& __self() noexcept { return *static_cast<Derived*>(this); }
   MDSPAN_FORCE_INLINE_FUNCTION Derived const& __self() const noexcept { return *static_cast<Derived const*>(this); }
-  MDSPAN_FORCE_INLINE_FUNCTION constexpr ptrdiff_t __size() const noexcept {
+  MDSPAN_FORCE_INLINE_FUNCTION constexpr size_t __size() const noexcept {
     return _MDSPAN_FOLD_TIMES_RIGHT((__self().map_.extents().template __extent<ExtIdxs>()), /* * ... * */ 1);
   }
   template <class ReferenceType, class IndexType, size_t N>
@@ -122,7 +122,7 @@ public:
   using layout_type = LayoutPolicy;
   using mapping_type = typename layout_type::template mapping<extents_type>; // TODO @proposal-bug typo in synopsis
   using value_type = remove_cv_t<element_type>;
-  using index_type = ptrdiff_t;
+  using index_type = size_t;
   using difference_type = ptrdiff_t;
   using container_policy_type = ContainerPolicy;
   using container_type = typename container_policy_type::container_type;
