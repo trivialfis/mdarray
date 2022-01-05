@@ -310,7 +310,7 @@ public:
       sizeof...(Exts) == extents_type::rank()
     )
   )
-  MDSPAN_FORCE_INLINE_FUNCTION
+
   _MDSPAN_CONSTEXPR_14 reference operator()(IndexType... indices) noexcept
   {
     return cp_.access(c_, map_(index_type(indices)...));
@@ -371,7 +371,6 @@ public:
   //==========================================================================
 
   // TODO noexcept specification
-  MDSPAN_INLINE_FUNCTION
   _MDSPAN_CONSTEXPR_14 view_type view() noexcept {
     return view_type(c_.data(), map_, cp_);
   }
